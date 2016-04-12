@@ -1,0 +1,16 @@
+<GridLayout rows="auto, *">
+  <GridLayout row="0" columns="*, auto">
+    <Label [text]="message" class="title" (tap)="message = 'OHAI'"></Label>
+  </GridLayout>
+  <ListView [items]="loans" row="1">
+    <template #loan="item" class="loan-card">
+      <GridLayout columns="*, auto" rows="50, auto, *">
+        <Label [text]="loan.name" row="0"></Label>
+        <Label [text]="loan.use" row="1"></Label>
+        <Image [src]="'http://www.kiva.org/img/100/' + loan.image.id + '.jpg'"
+          row="2">
+        </Image>
+      </GridLayout>
+    </template>
+  </ListView>
+</GridLayout>
