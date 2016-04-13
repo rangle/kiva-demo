@@ -1,16 +1,28 @@
-<GridLayout rows="auto, *">
-  <GridLayout row="0" columns="*, auto">
-    <Label [text]="message" class="title" (tap)="message = 'OHAI'"></Label>
-  </GridLayout>
+<StackLayout>
+  <Label text="Loans" class="title"></Label>
   <ListView [items]="loans" row="1">
-    <template #loan="item" class="loan-card">
-      <GridLayout columns="*, auto" rows="50, auto, *">
-        <Label [text]="loan.name" row="0"></Label>
-        <Label [text]="loan.use" row="1"></Label>
-        <Image [src]="'http://www.kiva.org/img/100/' + loan.image.id + '.jpg'"
-          row="2">
-        </Image>
-      </GridLayout>
+    <template #loan="item">
+      <StackLayout orientation="horizontal" class="loan-card" height="250">
+
+        <StackLayout column="0" class="details">
+          <Label [text]="loan.use" textwrap="true" class="green bold"></Label>
+
+          <StackLayout orientation="horizontal">
+            <Label text="Borrower: " class="bold"></Label>
+            <Label [text]="loan.name"></Label>
+          </StackLayout>
+
+          <StackLayout orientation="horizontal">
+            <Label text="Location: " class="bold"></Label>
+          </StackLayout>
+        </StackLayout>
+
+        <!-- <Label class="image" backgroundColor="lightgray" horizontalAlignment="right"></Label> -->
+        <Image [src]="'http://www.kiva.org/img/300/' + loan.image.id + '.jpg'"
+          class="image"
+          stretch="none"
+          horizontalAlignment="right"></Image>
+      </StackLayout>
     </template>
   </ListView>
-</GridLayout>
+</StackLayout>

@@ -1,6 +1,6 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.newnsapp",
+		"id": "org.nativescript.kivaMobile",
 		"tns-android": {
 			"version": "1.7.1"
 		}

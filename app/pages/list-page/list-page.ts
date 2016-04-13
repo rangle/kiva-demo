@@ -12,6 +12,12 @@ interface LoanImage {
   template_id: number;
 };
 
+interface LoanLocation {
+  countryCode: string;
+  country: string;
+  town: string;
+}
+
 interface Loan {
   id: number;
   name: string;
@@ -22,11 +28,12 @@ interface Loan {
   use: string;
   activity: string;
   loanAmount: number;
+  location: LoanLocation;
 };
 
 @Component({
   selector: 'loans-list-page',
-  templateUrl: 'pages/list-page/list-page.html'
+  templateUrl: 'pages/list-page/list-page.html',
 })
 export class LoansListPage {
   public message: string = 'Hello, Angular!';

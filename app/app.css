@@ -3,3 +3,25 @@
     horizontal-align: center;
     margin:20;
 }
+
+.green {
+  color: green;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Ideally these will be put in an app scoped file
+* not working for some reason */
+.details {
+  width: 70%;
+}
+
+.image {
+  width: 30%;
+}
+
+.loan-card {
+  padding: 10;
+}
