@@ -6,30 +6,14 @@ import {
   Input,
   Inject,
 } from 'angular2/core';
+// Types
+import {
+  Loan,
+  LoanImage,
+  LoanLocation
+} from '../../globals.d'
 
-interface LoanImage {
-  id: number;
-  template_id: number;
-};
-
-interface LoanLocation {
-  countryCode: string;
-  country: string;
-  town: string;
-}
-
-interface Loan {
-  id: number;
-  name: string;
-  status: string;
-  fundedAmount: number;
-  basketAmount: number;
-  image: LoanImage;
-  use: string;
-  activity: string;
-  loanAmount: number;
-  location: LoanLocation;
-};
+import { mapToLoan } from '../../utils';
 
 @Component({
   selector: 'loans-list-page',
@@ -46,19 +30,7 @@ export class LoansListPage {
     this.http.get('http://api.kivaws.org/v1/loans/search.json?per_page=40')
       .map(response => response.json().loans)
       .map(items => {
-        return items.map((item) => {
-          return {
-            id: item.id,
-            name: item.name,
-            status: item.status,
-            fundedAmount: item.funded_amount,
-            basketAmount: item.basket_amount,
-            image: item.image,
-            use: item.use,
-            activity: item.activity,
-            loanAmount: item.loan_amount,
-          };
-        });
+        return items.map((item) => mapToLoan(item));
       })
       .subscribe((loans: Loan[]) => {
         this.loans = loans;
@@ -66,6 +38,6 @@ export class LoansListPage {
   }
 
   public getImageSrc(image) {
-    return `http://www.kiva.org/img/100/${image.id}.jpg`;
+    return 'http://www.kiva.org/img/300/' + image.id + '.jpg';
   }
 }

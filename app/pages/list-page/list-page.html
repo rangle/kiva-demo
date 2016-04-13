@@ -18,7 +18,7 @@
         </StackLayout>
 
         <!-- <Label class="image" backgroundColor="lightgray" horizontalAlignment="right"></Label> -->
-        <Image [src]="'http://www.kiva.org/img/300/' + loan.image.id + '.jpg'"
+        <Image [src]="getImageSrc(loan.image)"
           class="image"
           stretch="none"
           horizontalAlignment="right"></Image>
