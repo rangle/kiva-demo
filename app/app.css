@@ -25,3 +25,14 @@
 .loan-card {
   padding: 10;
 }
+
+.progress-bar-outer {
+  border-radius: 5;
+  width: 90%;
+  margin-left: 5;
+  margin-right: 5;
+}
+
+.progress-bar-inner {
+  border-radius: 5;
+}

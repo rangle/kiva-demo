@@ -12,6 +12,16 @@
             <Label text="Asking: "></Label>
             <Label [text]="'$' + loan.loanAmount"></Label>
           </StackLayout>
+
+          <AbsoluteLayout class="progress-bar-outer" backgroundColor="lightgray" height="10" horizontalAlignment="left">
+            <Label top="1"
+              left="1"
+              backgroundColor="green"
+              [width]="getFundingPercent(loan.loanAmount, loan.fundedAmount)"
+              height="8" class="progress-bar-inner">
+            </Label>
+          </AbsoluteLayout>
+
           <StackLayout orientation="horizontal">
             <Label text="Borrower: "></Label>
             <Label [text]="loan.name" class="bold"></Label>

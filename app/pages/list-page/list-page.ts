@@ -13,7 +13,10 @@ import {
   LoanLocation
 } from '../../globals.d'
 
-import { mapToLoan } from '../../utils';
+import {
+  mapToLoan,
+  calcFundingProgress
+} from '../../utils';
 
 @Component({
   selector: 'loans-list-page',
@@ -35,5 +38,9 @@ export class LoansListPage {
       .subscribe((loans: Loan[]) => {
         this.loans = loans;
       }, error => console.log(error));
+  }
+
+  public getFundingPercent(goal: string, funded: string) : string {
+    return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
   }
 }

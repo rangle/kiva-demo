@@ -29,3 +29,7 @@ export function mapToLoan(item: any): Loan {
 export function getImageSrc(imageId: number) : string {
   return 'http://www.kiva.org/img/300/' + imageId + '.jpg';
 }
+
+export function calcFundingProgress(goal: number, funded: number) : number {
+  return Math.round((goal - (goal + funded)) / 100);
+}
