@@ -8,9 +8,24 @@ export function mapToLoan(item: any): Loan {
     status: item.status,
     fundedAmount: item.funded_amount,
     basketAmount: item.basket_amount,
-    image: item.image,
+    sector: item.sector,
+    image: {
+      id: item.image.id,
+      templateId: item.image.template_id,
+      src: getImageSrc(item.image.id)
+    },
     use: item.use,
     activity: item.activity,
     loanAmount: item.loan_amount,
+    location: {
+      country: item.location.country,
+      countryCode: item.location.country_code,
+      town: item.location.town
+    }
   };
+}
+
+
+export function getImageSrc(imageId: number) : string {
+  return 'http://www.kiva.org/img/300/' + imageId + '.jpg';
 }

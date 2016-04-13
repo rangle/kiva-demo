@@ -1,24 +1,30 @@
-<StackLayout>
+<StackLayout class="loans-page">
   <Label text="Loans" class="title"></Label>
-  <ListView [items]="loans" row="1">
+  <ListView [items]="loans">
     <template #loan="item">
       <StackLayout orientation="horizontal" class="loan-card" height="250">
 
-        <StackLayout column="0" class="details">
+        <StackLayout class="details">
+          <Label [text]="loan.sector + ' - ' + loan.activity | uppercase" class="bold"></Label>
           <Label [text]="loan.use" textwrap="true" class="green bold"></Label>
 
+          <StackLayout class="progress_section" orientation="horizontal">
+            <Label text="Asking: "></Label>
+            <Label [text]="'$' + loan.loanAmount"></Label>
+          </StackLayout>
           <StackLayout orientation="horizontal">
-            <Label text="Borrower: " class="bold"></Label>
-            <Label [text]="loan.name"></Label>
+            <Label text="Borrower: "></Label>
+            <Label [text]="loan.name" class="bold"></Label>
           </StackLayout>
 
           <StackLayout orientation="horizontal">
-            <Label text="Location: " class="bold"></Label>
+            <Label text="Location: "  textwrap="true"></Label>
+            <Label [text]="loan.location.town + ', ' + loan.location.country" textwrap="true" class="bold"></Label>
           </StackLayout>
         </StackLayout>
 
-        <!-- <Label class="image" backgroundColor="lightgray" horizontalAlignment="right"></Label> -->
-        <Image [src]="getImageSrc(loan.image)"
+<!--         <Label class="image" backgroundColor="lightgray" horizontalAlignment="right"></Label> -->
+        <Image [src]="loan.image.src"
           class="image"
           stretch="none"
           horizontalAlignment="right"></Image>

@@ -36,8 +36,4 @@ export class LoansListPage {
         this.loans = loans;
       }, error => console.log(error));
   }
-
-  public getImageSrc(image) {
-    return 'http://www.kiva.org/img/300/' + image.id + '.jpg';
-  }
 }

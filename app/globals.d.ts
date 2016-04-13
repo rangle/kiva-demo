@@ -1,6 +1,7 @@
 export interface LoanImage {
   id: number;
-  template_id: number;
+  templateId: number;
+  src: string,
 }
 
 export interface LoanLocation {
@@ -12,6 +13,7 @@ export interface LoanLocation {
 export interface Loan {
   id: number;
   name: string;
+  sector: string;
   status: string;
   fundedAmount: number;
   basketAmount: number;
@@ -19,5 +21,5 @@ export interface Loan {
   use: string;
   activity: string;
   loanAmount: number;
-  location?: LoanLocation;
+  location: LoanLocation;
 }
