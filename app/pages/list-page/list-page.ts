@@ -38,6 +38,11 @@ export class LoansListPage {
       .map(items => {
         return items.map((item) => mapToLoan(item));
       })
+      .map(loans => {
+        // Aggresively get the initial images
+        loans.forEach(loan => this.cache.fetchAndCache(loan.image.src));
+        return loans;
+      })
       .subscribe((loans: Loan[]) => {
         this.loans = loans;
         this.isLoading = false;
