@@ -31,5 +31,5 @@ export function getImageSrc(imageId: number) : string {
 }
 
 export function calcFundingProgress(goal: number, funded: number) : number {
-  return Math.round((goal - (goal + funded)) / 100);
+  return Math.round((funded / goal) * 100);
 }

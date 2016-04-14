@@ -8,12 +8,7 @@ globalImageCache.maxRequests = 10;
 
 @Injectable()
 export class ImageCache {
-  //private cache: any = new imageCache.Cache();
   private cache = globalImageCache;
-
-  consutructor() {
-    
-  }
 
   public getImage(src: string) : imageSource.ImageSource {
     let image = this.cache.get(src);

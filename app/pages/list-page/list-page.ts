@@ -12,12 +12,10 @@ import {
   LoanImage,
   LoanLocation
 } from '../../globals.d'
-
 import {
   mapToLoan,
   calcFundingProgress
 } from '../../utils';
-
 import { ImageCache } from '../../core/image-cache-service';
 
 @Component({
@@ -25,6 +23,8 @@ import { ImageCache } from '../../core/image-cache-service';
   templateUrl: 'pages/list-page/list-page.html',
 })
 export class LoansListPage {
+  private isLoading: boolean = false;
+
   @Input() public loans: Loan[] = [];
 
   constructor(@Inject(Http) private http: Http,
@@ -32,6 +32,7 @@ export class LoansListPage {
   }
 
   public ngOnInit() {
+    this.isLoading = true;
     this.http.get('http://api.kivaws.org/v1/loans/search.json?per_page=40')
       .map(response => response.json().loans)
       .map(items => {
@@ -39,6 +40,7 @@ export class LoansListPage {
       })
       .subscribe((loans: Loan[]) => {
         this.loans = loans;
+        this.isLoading = false;
       }, error => console.log(error));
   }
 
