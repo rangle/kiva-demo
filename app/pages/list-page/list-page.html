@@ -1,6 +1,6 @@
 <StackLayout class="loans-page">
   <Label text="Loans" class="title"></Label>
-  <ListView [items]="loans" id="loans-list">
+  <ListView [items]="loans" id="loans-list" (loadMoreItems)="onLoadMore()">
     <template #loan="item">
       <StackLayout orientation="horizontal" class="loan-card" height="250">
 

@@ -25,7 +25,8 @@ import { fetchAndCache } from '../../utils/native-image-utils';
 })
 export class LoansListPage {
   private isLoading: boolean = false;
-
+  private currentPage: number = 0;
+  
   @Input() public loans: Loan[] = [];
 
   constructor(@Inject(Http) private http: Http) {
@@ -51,5 +52,9 @@ export class LoansListPage {
 
   public getFundingPercent(goal: string, funded: string) : string {
     return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
+  }
+  
+  public onLoadMore() {
+    console.log('loaded more');
   }
 }
