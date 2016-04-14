@@ -18,15 +18,17 @@ import {
   calcFundingProgress
 } from '../../utils';
 
+import { ImageCache } from '../../core/image-cache-service';
+
 @Component({
   selector: 'loans-list-page',
   templateUrl: 'pages/list-page/list-page.html',
 })
 export class LoansListPage {
-  public message: string = 'Hello, Angular!';
   @Input() public loans: Loan[] = [];
 
-  constructor( @Inject(Http) private http: Http) {
+  constructor(@Inject(Http) private http: Http,
+    @Inject(ImageCache) private cache: ImageCache) {
   }
 
   public ngOnInit() {
@@ -42,5 +44,9 @@ export class LoansListPage {
 
   public getFundingPercent(goal: string, funded: string) : string {
     return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
+  }
+
+  public getImageSrc(src: string) {
+    return this.cache.getImage(src);
   }
 }
