@@ -2,10 +2,8 @@
 // (like globals and reflect-metadata)
 import { nativeScriptBootstrap } from 'nativescript-angular/application';
 import { KivaApp } from './app.component';
-import { ImageCache } from './core/image-cache-service';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import fontModule = require('ui/styling/font');
-
 // Register fonts (iOS)
 // GOTHAM
 // fontModule.ios.registerFont('GOTHAM-BLACK.TTF');
@@ -22,8 +20,6 @@ import fontModule = require('ui/styling/font');
 // fontModule.ios.registerFont('GOTHAM-ULTRAITALIC.TTF');
 // fontModule.ios.registerFont('GOTHAM-XLIGHT.TTF');
 // fontModule.ios.registerFont('GOTHAM-XLIGHTITALIC.TTF');
-
 nativeScriptBootstrap(KivaApp, [
-  HTTP_PROVIDERS,
-  ImageCache
+  HTTP_PROVIDERS
 ]);

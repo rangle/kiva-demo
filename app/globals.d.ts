@@ -17,9 +17,10 @@ export interface Loan {
   status: string;
   fundedAmount: number;
   basketAmount: number;
-  image: LoanImage;
+  image: any;
   use: string;
   activity: string;
   loanAmount: number;
   location: LoanLocation;
+  imageId: number;
 }

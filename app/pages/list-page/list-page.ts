@@ -11,12 +11,13 @@ import {
   Loan,
   LoanImage,
   LoanLocation
-} from '../../globals.d'
+} from '../../globals.d';
 import {
   mapToLoan,
-  calcFundingProgress
+  calcFundingProgress,
+  getImageSrc
 } from '../../utils';
-import { ImageCache } from '../../core/image-cache-service';
+import { fetchAndCache } from '../../utils/native-image-utils';
 
 @Component({
   selector: 'loans-list-page',
@@ -27,20 +28,19 @@ export class LoansListPage {
 
   @Input() public loans: Loan[] = [];
 
-  constructor(@Inject(Http) private http: Http,
-    @Inject(ImageCache) private cache: ImageCache) {
+  constructor(@Inject(Http) private http: Http) {
   }
 
   public ngOnInit() {
     this.isLoading = true;
-    this.http.get('http://api.kivaws.org/v1/loans/search.json?per_page=40')
+    this.http.get('http://api.kivaws.org/v1/loans/search.json?per_page=20')
       .map(response => response.json().loans)
       .map(items => {
         return items.map((item) => mapToLoan(item));
       })
       .map(loans => {
         // Aggresively get the initial images
-        loans.forEach(loan => this.cache.fetchAndCache(loan.image.src));
+        loans.forEach(loan => fetchAndCache(getImageSrc(loan.imageId)));
         return loans;
       })
       .subscribe((loans: Loan[]) => {
@@ -51,9 +51,5 @@ export class LoansListPage {
 
   public getFundingPercent(goal: string, funded: string) : string {
     return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
-  }
-
-  public getImageSrc(src: string) {
-    return this.cache.getImage(src);
   }
 }
