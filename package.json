@@ -1,6 +1,6 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.kivaMobile",
+		"id": "com.rangle.kivaMobile",
 		"tns-ios": {
 			"version": "1.7.0"
 		},

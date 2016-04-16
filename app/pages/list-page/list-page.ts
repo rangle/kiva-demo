@@ -18,6 +18,7 @@ import {
   getImageSrc
 } from '../../utils';
 import { fetchAndCache } from '../../utils/native-image-utils';
+import { KivaApi} from '../../core/kiva-api-service';
 
 @Component({
   selector: 'loans-list-page',
@@ -25,29 +26,41 @@ import { fetchAndCache } from '../../utils/native-image-utils';
 })
 export class LoansListPage {
   private isLoading: boolean = false;
-  private currentPage: number = 0;
-  
+  private currentPage: number = 1;
+  private error: boolean = false;
   @Input() public loans: Loan[] = [];
 
-  constructor(@Inject(Http) private http: Http) {
+  constructor(@Inject(KivaApi) private api: KivaApi) {
+  }
+  
+  private _cacheLoanImages(loans: Loan[]) : Loan[] {
+    console.log('caching images');
+    loans.forEach(loan => fetchAndCache(getImageSrc(loan.imageId)));
+    return loans;
+  }
+  
+  // Makes requests to the KivaApi for new pages of loans
+  // Uses this.currentPage to track the number of pages to show
+  // the user.
+  private _handleFetchLoans() {
+    this.isLoading = true;
+    this.api.fetchLoans(this.currentPage)
+      .map((loans: Loan[]) => this._cacheLoanImages(loans))
+      .subscribe((loans: Loan[]) => {
+        loans.forEach((loan) => {
+          this.loans.push(loan);
+        });
+      this.currentPage++;
+      this.isLoading = false;
+    }, (error) => {
+      console.log(error);
+      this.error = true;
+      this.isLoading = false;
+    });
   }
 
   public ngOnInit() {
-    this.isLoading = true;
-    this.http.get('http://api.kivaws.org/v1/loans/search.json?per_page=20')
-      .map(response => response.json().loans)
-      .map(items => {
-        return items.map((item) => mapToLoan(item));
-      })
-      .map(loans => {
-        // Aggresively get the initial images
-        loans.forEach(loan => fetchAndCache(getImageSrc(loan.imageId)));
-        return loans;
-      })
-      .subscribe((loans: Loan[]) => {
-        this.loans = loans;
-        this.isLoading = false;
-      }, error => console.log(error));
+    this._handleFetchLoans();
   }
 
   public getFundingPercent(goal: string, funded: string) : string {
@@ -55,6 +68,10 @@ export class LoansListPage {
   }
   
   public onLoadMore() {
-    console.log('loaded more');
+    // Sometimes this event gets called multiple times based
+    // on how a user scrolls, we only want to make the request once
+    if (!this.isLoading) {
+      this._handleFetchLoans();
+    }
   }
 }
