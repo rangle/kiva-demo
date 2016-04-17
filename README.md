@@ -21,7 +21,9 @@
 
 * Add Platforms
 `tns platform add android` 
-`tns platform add ios` 
+`tns platform add ios`  
+**OR**  
+`tns install`  
 
 * Install Dependencies
 `npm install`
@@ -29,22 +31,23 @@
 ---
 
 ### Development
-* Android: `npm run dev-android` 
+* Android: `tns livesync android --emulator --watch`
 
-* iOS: `npm run dev-ios`  
+* iOS: `tns livesync ios --emulator --watch`  
+> Note: you can remove `--emulator` if you would like the app to run on a connected device.
 
 ---
 
 ### Testing
-* On an emulator: `npm run test-<platform>`
-* On a device running the app: `npm run test <platform>`
-* All tests are available in `app/tests`
-> Note: If testing on a physical device, ensure that the device is able to access your machine's localhost before running the above command.
+_Coming Soon_
 
 ---
 
 ### Production
-_Coming Soon_
+* `tns build <platform>`  
+**Important:** When building for iOS, ensure you have a valid provisioning profile and Apple developer credentials.  
+For Android the `.apk` can be found in `platforms/android/build/apk`.  
+For iOS the `.ipa` is under `platforms/ios/build/device`.
 
 ___
 
