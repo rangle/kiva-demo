@@ -3,6 +3,7 @@
 import { nativeScriptBootstrap } from 'nativescript-angular/application';
 import { KivaApp } from './app.component';
 import { KivaApi } from './core/kiva-api-service';
+import { LoansService } from './core/loans-service';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import fontModule = require('ui/styling/font');
 // Register fonts (iOS)
@@ -23,5 +24,6 @@ import fontModule = require('ui/styling/font');
 // fontModule.ios.registerFont('GOTHAM-XLIGHTITALIC.TTF');
 nativeScriptBootstrap(KivaApp, [
   HTTP_PROVIDERS,
-  KivaApi
+  KivaApi,
+  LoansService
 ]);

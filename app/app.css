@@ -12,6 +12,10 @@
   font-weight: bold;
 }
 
+.p5 {
+  padding: 5;
+}
+
 /* Ideally these will be put in an app scoped file
 * not working for some reason */
 .details {
@@ -35,4 +39,22 @@
 
 .progress-bar-inner {
   border-radius: 5;
+}
+
+.filter-button {
+  border-color: #52D800;
+  border-radius: 2;
+  border-width: 1;
+  color: #52D800;
+  margin-bottom: 5;
+  margin-right: 5;
+}
+
+.kiva-dark-green {
+  background-color: #236133;
+}
+
+.location-item {
+  font-size: 20;
+  horizontal-align: center;
 }

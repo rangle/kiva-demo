@@ -8,6 +8,14 @@ export interface LoanLocation {
   countryCode: string;
   country: string;
   town: string;
+  state: string;
+  lat: number;
+  long: number;
+}
+
+export interface Money {
+  amount: string;
+  currency: string;
 }
 
 export interface Loan {
@@ -15,12 +23,12 @@ export interface Loan {
   name: string;
   sector: string;
   status: string;
-  fundedAmount: number;
-  basketAmount: number;
+  fundedAmount: Money;
+  basketAmount: Money;
   image: any;
   use: string;
   activity: string;
-  loanAmount: number;
+  loanAmount: Money;
   location: LoanLocation;
   imageId: number;
 }

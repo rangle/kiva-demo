@@ -30,9 +30,9 @@
     "v8Flags": "--expose_gc"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.9",
-    "nativescript-angular": "0.0.38",
-    "tns-core-modules": "^1.7.0"
+    "angular2": "2.0.0-beta.14",
+    "nativescript-angular": "0.0.42",
+    "tns-core-modules": ">=2.0.0 || >=2.0.0-2016 || >=2.0.0-angular-4"
   },
   "devDependencies": {
     "nativescript-dev-typescript": "^0.3.1"
