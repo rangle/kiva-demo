@@ -1,10 +1,12 @@
 import { Injectable } from 'angular2/core';
 import { ObservableArray } from 'data/observable-array';
 import { Loan } from '../globals.d';
+// TODO: find a better way of mocking this stuff
+import { loansMocks } from '../mocks/loans';
 
 @Injectable()
 export class LoansService {
-  public loans = new ObservableArray([]);
+  public loans = new ObservableArray(loansMocks);
 
   public addLoans(loans: Loan[]) {
     loans.forEach((loan) => {
