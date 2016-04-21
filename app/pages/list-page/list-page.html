@@ -1,7 +1,14 @@
 <StackLayout class="loans-page">
-  <Label text="Loans" class="title"></Label>
+  <ActionBar>
+      <StackLayout orientation="horizontal"
+        class="actionBar"
+        ios:horizontalAlignment="center"
+        android:horizontalAlignment="center">
+        <Image  class="action-image"></Image>
+      </StackLayout>
+  </ActionBar>
 
-  <!-- Filter bar -->
+  <!-- Filter bar
   <StackLayout class="filters-wrap">
     <StackLayout class="switch-wrap"
       orientation="horizontal"
@@ -22,6 +29,7 @@
       <Button text="Apply" (tap)="applySelectedFilter()"></Button>
     </StackLayout>
   </StackLayout>
+  -->
 
   <ListView [items]="LoansService.loans" id="loans-list" (loadMoreItems)="onLoadMore()">
     <template #loan="item">

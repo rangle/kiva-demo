@@ -1,10 +1,4 @@
-﻿.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin:20;
-}
-
-.green {
+﻿.green {
   color: green;
 }
 
@@ -16,29 +10,79 @@
   padding: 5;
 }
 
+/*
+  Action Bar Styles
+*/
+
+ActionBar {
+  background-color: rgba(35,97,51, 1);
+  opacity: 1;
+  color: #fff;
+}
+.title {
+  font-size: 17;
+  horizontal-align: center;
+  margin: 5;
+}
+.action-image {
+  width: 70;
+  height: 20;
+  vertical-align: center;
+  background-image: url('~/images/Kiva.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.action-label {
+    color: #3C5AFD;
+    font-size: 24;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+/*
+  Loan Card Styles
+*/
+
 /* Ideally these will be put in an app scoped file
 * not working for some reason */
-.details {
-  width: 70%;
-}
 
-.image {
-  width: 30%;
+.loan {
+  padding: 17;
 }
-
-.loan-card {
-  padding: 10;
+.loanContent {
+  width: 60%;
+  padding-right: 10;
 }
-
+.loanAbout-categories {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 10;
+  margin-bottom: 5;
+}
+.loanUse {
+  color: #236133;
+  font-size: 16;
+  margin-bottom: 5;
+}
+.loanAmount {
+  font-size: 12;
+  font-weight: bold;
+  margin-bottom: 5;
+}
 .progress-bar-outer {
   border-radius: 5;
   width: 90%;
   margin-left: 5;
   margin-right: 5;
 }
-
 .progress-bar-inner {
   border-radius: 5;
+}
+.loanImage {
+  width: 40%;
+  vertical-align: top;
+  border-radius: 3;
 }
 
 .filter-button {

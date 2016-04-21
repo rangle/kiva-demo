@@ -21,13 +21,13 @@ export interface Money {
 export interface Loan {
   id: number;
   name: string;
-  sector: string;
   status: string;
   fundedAmount: Money;
   basketAmount: Money;
   image: any;
   use: string;
-  activity: string;
+  sector: Object;
+  activity: Object;
   loanAmount: Money;
   location: LoanLocation;
   imageId: number;
