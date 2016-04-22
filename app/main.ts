@@ -2,10 +2,16 @@
 // (like globals and reflect-metadata)
 import { nativeScriptBootstrap } from 'nativescript-angular/application';
 import { KivaApp } from './app.component';
+//import {setStatusBarColors} from "./utils/status-bar-util";
 import { KivaApi } from './core/kiva-api-service';
 import { LoansService } from './core/loans-service';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import fontModule = require('ui/styling/font');
+
+// Making the status bar transparent and white
+//setStatusBarColors();
+//nativeScriptBootstrap(AppComponent);
+
 // Register fonts (iOS)
 // GOTHAM
 // fontModule.ios.registerFont('GOTHAM-BLACK.TTF');

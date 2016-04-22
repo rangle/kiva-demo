@@ -1,47 +1,98 @@
-﻿.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin:20;
+/*
+  Utility Styles
+  (styles rules that you want to keep consistent across all elements)
+*/
+.br2 { border-radius: 2; }
+.br3 { border-radius: 3; }
+.bold { font-weight: bold; }
+.p5 { padding: 5; } /* remove / replace */
+.green { color: green; } /* remove / replace */
+
+/*
+  Action Bar Styles
+*/
+
+ActionBar {
+  background-color: rgba(35,97,51, 1);
+  color: #fff;
+}
+.title {
+  font-size: 17;
+  horizontal-align: center;
+  margin: 5;
+}
+.logo {
+  width: 70;
+  height: 20;
+  vertical-align: center;
+  background-image: url('~/images/Kiva.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.green {
-  color: green;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.p5 {
-  padding: 5;
-}
+/*
+  Loan Card Styles
+*/
 
 /* Ideally these will be put in an app scoped file
 * not working for some reason */
-.details {
-  width: 70%;
+
+.loan {
+  padding: 17;
+}
+.loanContent {
+  width: 60%;
+  padding-right: 10;
+}
+.loanSectionLabel {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 10;
+}
+.loanUse {
+  color: #236133;
+  font-size: 16;
+  margin-bottom: 5;
+}
+.loanAmount {
+  font-size: 12;
+  font-weight: bold;
+  margin-bottom: 5;
+  color: #666;
+}
+.loanProgress-max {
+  height: 5;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 2;
+  margin-bottom: 5;
+}
+.loanProgress-value {
+  height: 5;
+  background-color: #52D800;
+}
+.loanFunding {
+  margin-bottom: 10;
+}
+.loanFunding label {
+  font-size: 12;
+  color: #666;
+}
+.loanBorrower-location label{
+  font-size: 12;
+  color: #666;
+}
+.loanImage { width: 40%; }
+.loanImage-filter {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
-.image {
-  width: 30%;
-}
+/*
+  Misc.
+*/
 
-.loan-card {
-  padding: 10;
-}
-
-.progress-bar-outer {
-  border-radius: 5;
-  width: 90%;
-  margin-left: 5;
-  margin-right: 5;
-}
-
-.progress-bar-inner {
-  border-radius: 5;
-}
-
-.filter-button {
+.filter-button { /* remove / replace */
   border-color: #52D800;
   border-radius: 2;
   border-width: 1;
@@ -49,12 +100,8 @@
   margin-bottom: 5;
   margin-right: 5;
 }
-
-.kiva-dark-green {
-  background-color: #236133;
-}
-
-.location-item {
+.kiva-dark-green { background-color: #236133; } /* remove / replace */
+.location-item { /* remove / replace */
   font-size: 20;
   horizontal-align: center;
 }

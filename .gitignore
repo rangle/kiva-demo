@@ -33,3 +33,6 @@ app/**/*.js
 
 # NativeScript generated binaries
 platforms/*
+
+#Ignore .idea
+.idea
