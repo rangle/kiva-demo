@@ -1,35 +1,12 @@
 <StackLayout class="loans-page">
-  <ActionBar>
-      <StackLayout orientation="horizontal"
-        class="actionBar"
-        ios:horizontalAlignment="center"
-        android:horizontalAlignment="center">
-        <Image  class="logo"></Image>
-      </StackLayout>
-  </ActionBar>
-
-  <!-- Filter bar
-  <StackLayout class="filters-wrap">
-    <StackLayout class="switch-wrap"
-      orientation="horizontal"
-      horizontalAlignment="stretch">
-      <Button text="Clear City"
-        (tap)="clearFilter()" horizontalAlignment="left">
-      </Button>
-      <Button text="Select City"
-        (tap)="toggleShowFilters()" horizontalAlignment="right">
-      </Button>
-    </StackLayout>
-    <StackLayout *ngIf="showFilters">
-      <ListPicker #picker
-        [items]="filters"
-        [selectedIndex]="selectedFilterIndex"
-        (selectedIndexChange)="onFilterChange(picker)">
-      </ListPicker>
-      <Button text="Apply" (tap)="applySelectedFilter()"></Button>
-    </StackLayout>
+  <StackLayout class="location-select-wrap" horizontalAlignment="stretch">
+    <Button (tap)="showModal()"
+      class="location-select-button material-icon"
+      [text]="(selectedFilter || 'Select City') + ' &#xf2f2; '">
+    </Button>
   </StackLayout>
-  -->
+
+<StackLayout class="loans-page" modal-dialog-host>
 
   <ListView [items]="LoansService.loans" id="loans-list" (loadMoreItems)="onLoadMore()">
     <template #loan="item">
@@ -38,5 +15,5 @@
   </ListView>
 
   <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
-  <Label text="No more loans" *ngIf="error"></Label>
+  <Label text="No loans to display" *ngIf="error" horizontalAlignment="center"></Label>
 </StackLayout>

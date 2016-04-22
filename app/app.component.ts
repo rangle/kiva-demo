@@ -12,7 +12,19 @@ import { Page } from 'ui/page';
 @Component({
   selector: 'kiva-app',
   directives: [LoansListPage],
-  template: `<loans-list-page></loans-list-page>`
+  template: `
+    <GridLayout rows="auto, *">
+      <ActionBar row="0">
+        <StackLayout orientation="horizontal"
+          class="actionBar"
+          ios:horizontalAlignment="center"
+          android:horizontalAlignment="center">
+          <Image  class="logo"></Image>
+        </StackLayout>
+      </ActionBar>
+      <loans-list-page row="1"></loans-list-page>
+    </GridLayout>
+  `
 })
 export class KivaApp {
   private page: any = null;

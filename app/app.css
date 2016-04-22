@@ -7,7 +7,9 @@
 .bold { font-weight: bold; }
 .p5 { padding: 5; } /* remove / replace */
 .green { color: green; } /* remove / replace */
-
+.material-icon {
+  font-family: 'Material-Design-Iconic-Font';
+}
 /*
   Action Bar Styles
 */
@@ -37,7 +39,16 @@ ActionBar {
 
 /* Ideally these will be put in an app scoped file
 * not working for some reason */
-
+.location-select-wrap {
+  padding: 0;
+  background-color: #52D800;
+}
+.location-select-button {
+  background-color: transparent;
+  border-width: 1;
+  border-color: #52D800;
+  color: white;
+}
 .loan {
   padding: 17;
 }
@@ -104,4 +115,11 @@ ActionBar {
 .location-item { /* remove / replace */
   font-size: 20;
   horizontal-align: center;
+}
+
+.city-filter {
+  padding-top: 10;
+  padding-bottom: 10;
+  padding-right: 5;
+  padding-left: 5;
 }
