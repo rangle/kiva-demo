@@ -15,6 +15,7 @@
 ActionBar {
   background-color: rgba(35,97,51, 1);
   color: #fff;
+  padding-top: 10;
 }
 .title {
   font-size: 17;
@@ -91,7 +92,6 @@ ActionBar {
 /*
   Misc.
 */
-
 .filter-button { /* remove / replace */
   border-color: #52D800;
   border-radius: 2;
