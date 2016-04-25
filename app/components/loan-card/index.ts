@@ -32,13 +32,13 @@ import {Loan} from '../../globals.d';
 
         <StackLayout class="loanBorrower">
           <StackLayout orientation="horizontal" class="loanBorrower-name">
-            <Label class="loanSectionLabel" 
+            <Label class="loanSectionLabel"
               text="Borrower: "></Label>
           </StackLayout>
           <StackLayout class="loanBorrower-location"
             orientation="horizontal" >
             <Label textwrap="true"
-              [text]="loan.name +' in '+ loan.location.town" class="bold"></Label>
+              [text]="(loan.location.town ? loan.name +' in '+ loan.location.town+', '+loan.location.state : loan.name ) " class="bold"></Label>
           </StackLayout>
         </StackLayout>
 
@@ -65,11 +65,11 @@ import {Loan} from '../../globals.d';
 })
 export class LoanCard {
   @Input() loan: Loan;
-  /*
+
   public ngOnInit(){
     console.log(JSON.stringify(this.loan));
   };
-  */
+
   public getFundingPercent(goal: string, funded: string) : string {
     return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
   }
