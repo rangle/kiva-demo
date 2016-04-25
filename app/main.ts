@@ -7,6 +7,8 @@ import { KivaApi } from './core/kiva-api-service';
 import { LoansService } from './core/loans-service';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import fontModule = require('ui/styling/font');
+import application = require('application');
+import platform = require('platform');
 
 // Making the status bar transparent and white
 setStatusBarColors();
@@ -27,6 +29,21 @@ setStatusBarColors();
 // fontModule.ios.registerFont('GOTHAM-ULTRAITALIC.TTF');
 // fontModule.ios.registerFont('GOTHAM-XLIGHT.TTF');
 // fontModule.ios.registerFont('GOTHAM-XLIGHTITALIC.TTF');
+
+// check the current platform (we are interested in android only)
+// alternatively, you may have app.android.js and app.ios.js
+if(platform.device.os === platform.platformNames.android) {
+    application.onLaunch = function(intent) {
+        // hook the onActivityCreated callback upon application launching
+        application.android.onActivityCreated = function(activity) {
+            // apply the default theme once the Activity is created
+            // Changing the SplashTheme for AppTheme
+            const id = activity.getResources().getIdentifier("AppTheme", "style", activity.getPackageName());
+            activity.setTheme(id);
+        }
+    }
+}
+
 nativeScriptBootstrap(KivaApp, [
   HTTP_PROVIDERS,
   KivaApi,

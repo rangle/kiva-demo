@@ -29,7 +29,7 @@ import { NativeImage } from './native-image-utils';
 
 // For use with V2
 export function mapToLoan(item: any): Loan {
-  return {
+  let output = {
     id: item.properties.id,
     name: item.properties.name,
     status: item.properties.status,
@@ -44,13 +44,14 @@ export function mapToLoan(item: any): Loan {
     location: {
       country: item.properties.location.country.name,
       countryCode: item.properties.location.country.geocode.countryId,
-      town: item.properties.location.town.name,
+      town: item.properties.location.town,
       state: item.properties.location.country.geocode.state,
       lat: item.properties.location.country.geocode.latitude,
       long: item.properties.location.country.geocode.longitude,
     },
     borrowerCount: item.properties.borrowerCount
   };
+  return output;
 }
 
 export function getImageSrc(imageId: number) : string {
