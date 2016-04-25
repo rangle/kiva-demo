@@ -44,7 +44,7 @@ export function mapToLoan(item: any): Loan {
     location: {
       country: item.properties.location.country.name,
       countryCode: item.properties.location.country.geocode.countryId,
-      town: item.properties.location.town,
+      town: item.properties.location.country.geocode.city,
       state: item.properties.location.country.geocode.state,
       lat: item.properties.location.country.geocode.latitude,
       long: item.properties.location.country.geocode.longitude,
