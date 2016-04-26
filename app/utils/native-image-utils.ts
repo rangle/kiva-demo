@@ -5,8 +5,8 @@ import observable = require("data/observable");
 const globalImageCache = new imageCache.Cache();
 globalImageCache.maxRequests = 20;
 globalImageCache.placeholder = imageSource.fromFile('~/images/placeholder.png');
-  
-  
+
+
 export function fetchAndCache(src: string) : void {
   let image = globalImageCache.get(src);
   if (!image) {
@@ -21,12 +21,12 @@ export class NativeImage extends observable.Observable {
   private _src: string;
   constructor(src: string) {
     super();
-    this._src = src; 
+    this._src = src;
   }
-  
+
   get src() : imageSource.ImageSource {
     let image = globalImageCache.get(this._src);
-    
+
     if (image) {
       return image;
     }
@@ -46,4 +46,8 @@ export class NativeImage extends observable.Observable {
     }
     return globalImageCache.placeholder;
   }
+}
+
+export function loadImageAsync(src: string, shouldCache: boolean) {
+  return imageSource.fromUrl(src)
 }
