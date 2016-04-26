@@ -4,28 +4,31 @@ import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
 @Component({
   selector: 'filters-modal',
   template: `
-  <StackLayout margin="24" horizontalAlignment="center" verticalAlignment="center">
-    <StackLayout orientation="horizontal">
-      <Label text="Current City: " *ngIf="currentFilter"></Label>
-      <Label [text]="currentFilter" class="bold"></Label>
-    </StackLayout>
-    <GridLayout marginTop="12" rows="*, auto">
-
+  <StackLayout orientation="vertical"
+    class="cityFilterModal">
+      <DockLayout orientation="vertical"
+        class="modalActionBar">
+        <Button class="closeModal"
+          dock="left"
+          (tap)="selectFilter(null)">
+        </Button>
+        <Label text="Choose city"
+          dock="right"
+          textAlignment="center"
+          class="modalTitle">
+        </Label>
+      </DockLayout>
       <ListView #filterList
         [items]="filters"
         (itemTap)="selectFilter($event)"
-        row="0">
+        row="0"
+        class="cityList">
         <template #filter="item">
           <StackLayout class="city-filter">
-            <Label [text]="filter" class="bold"></Label>
+            <Label [text]="filter" class="cityListItem"></Label>
           </StackLayout>
         </template>
       </ListView>
-
-      <Button text="cancel"
-        (tap)="selectFilter(null)" row="1">
-      </Button>
-    </GridLayout>
   </StackLayout>
   `
 })
@@ -44,7 +47,7 @@ export class FiltersModal {
     'Philadelphia,PA',
     'Pittsburg,PA',
     'Richmond,VA',
-    'Washington D.C.,DC',
+    'Washington D.C.,DC'
   ];
   constructor(@Inject(ModalDialogParams) private params: ModalDialogParams) {
     this.currentFilter = params.context.filter || 'None';
