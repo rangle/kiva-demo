@@ -5,10 +5,12 @@ import { KivaApp } from './app.component';
 import {setStatusBarColors} from "./utils/status-bar-util";
 import { KivaApi } from './core/kiva-api-service';
 import { LoansService } from './core/loans-service';
+import { RouterService } from './core/router-service';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import fontModule = require('ui/styling/font');
 import application = require('application');
 import platform = require('platform');
+import { NS_ROUTER_PROVIDERS } from "nativescript-angular/router";
 
 // Making the status bar transparent and white
 setStatusBarColors();
@@ -45,6 +47,8 @@ if(platform.device.os === platform.platformNames.android) {
 }
 
 nativeScriptBootstrap(KivaApp, [
+  RouterService,
+  NS_ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
   KivaApi,
   LoansService

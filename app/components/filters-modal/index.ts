@@ -3,34 +3,13 @@ import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
 
 @Component({
   selector: 'filters-modal',
-  template: `
-  <StackLayout orientation="vertical"
-    class="cityFilterModal">
-      <DockLayout orientation="vertical"
-        class="modalActionBar">
-        <Button class="closeModal"
-          dock="left"
-          (tap)="selectFilter(null)">
-        </Button>
-        <Label text="Choose city"
-          dock="right"
-          textAlignment="center"
-          class="modalTitle">
-        </Label>
-      </DockLayout>
-      <ListView #filterList
-        [items]="filters"
-        (itemTap)="selectFilter($event)"
-        row="0"
-        class="cityList">
-        <template #filter="item">
-          <StackLayout class="city-filter">
-            <Label [text]="filter" class="cityListItem"></Label>
-          </StackLayout>
-        </template>
-      </ListView>
-  </StackLayout>
-  `
+  templateUrl: 'components/filters-modal/template.html',
+  directives: [],
+  providers: [],
+  styleUrls: [
+    'components/filters-modal/styles.css',
+    'components/filters-modal/styles-shared.css'
+  ]
 })
 export class FiltersModal {
   public currentFilter: string;
