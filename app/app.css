@@ -33,6 +33,18 @@ ActionBar {
   background-repeat: no-repeat;
   background-size: contain;
 }
+.actionBar {
+  height: 60;
+  padding-top: 8;
+  padding-left: 15;
+  padding-right: 15;
+}
+.actionBarStatusBar {
+  margin-top: -20;
+}
+.actionBar-actionItem {
+  color: #fff;
+}
 
 /*
   Loan Card Styles

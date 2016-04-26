@@ -1,19 +1,11 @@
-<StackLayout class="loans-page">
-  <ActionBar>
-    <StackLayout orientation="horizontal"
-      class="actionBar"
-      ios:horizontalAlignment="center"
-      android:horizontalAlignment="center">
-      <Image  class="logo"></Image>
-    </StackLayout>
-  </ActionBar>
-  <StackLayout class="location-select-wrap" horizontalAlignment="stretch">
+<StackLayout class="loans-page kiva-dark-green actionBarStatusBar">
+  <DockLayout orientation="vertical"
+    class="actionBar">
     <Button (tap)="showModal()"
-      class="location-select-button material-icon"
-      [text]="(selectedFilter || 'Select City') + ' &#xf2f2; '">
+      class="actionBar-actionItem material-icon"
+      [text]="(selectedFilter || 'All Cities') + ' &#xf2f2; '">
     </Button>
-  </StackLayout>
-
+  </DockLayout>
 <StackLayout class="loans-page" modal-dialog-host>
 
   <ListView [items]="LoansService.loans" id="loans-list" (loadMoreItems)="onLoadMore()">
