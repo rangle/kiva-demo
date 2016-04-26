@@ -3,6 +3,8 @@ import {Loan} from '../../globals.d';
 import { getImageSrc } from '../../utils';
 import { ProgressBar } from '../progress-bar';
 import { calcFundingProgress } from '../../utils';
+import { loadImageAsync } from '../../utils/native-image-utils';
+import { DETAILS_IMAGE_SIZE } from '../../constants';
 @Component({
   selector: 'loan-details',
   templateUrl: 'components/loan-details/template.html',
@@ -12,9 +14,26 @@ import { calcFundingProgress } from '../../utils';
 })
 export class LoanDetails {
   @Input() private loan: Loan;
+  private isLoading: boolean = false;
+  private detailsImageSrc: string;
 
   public getDetailsImage() {
-    return getImageSrc(this.loan.imageId, 400);
+    return getImageSrc(this.loan.imageId, DETAILS_IMAGE_SIZE);
+  }
+
+  ngOnInit() {
+    // Load the larger image, show loading indicator in interim
+    this.isLoading = true;
+    const imgSrc = getImageSrc(this.loan.imageId, DETAILS_IMAGE_SIZE)
+    const imageProm = loadImageAsync(imgSrc, true);
+      imageProm.then((res) => {
+        this.isLoading = false;
+        this.detailsImageSrc = imgSrc;
+      })
+      .catch((err) => {
+        this.isLoading = false;
+      })
+
   }
 
   public getPercentText() {

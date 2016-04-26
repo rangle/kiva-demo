@@ -1,5 +1,14 @@
 <StackLayout>
-  <Image [src]="getDetailsImage()"></Image>
+  <StackLayout class="details-image-wrap">
+    <ActivityIndicator *ngIf="isLoading"
+      [busy]="isLoading"
+      class="details-image-loader">
+    </ActivityIndicator>
+    <Image [src]="detailsImageSrc"
+      *ngIf="detailsImageSrc"
+      class="details-image">
+    </Image>
+  </StackLayout>
 
   <StackLayout class="details-wrap">
     <StackLayout class="funding-details">

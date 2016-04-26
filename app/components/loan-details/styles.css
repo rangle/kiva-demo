@@ -13,3 +13,19 @@
 .progress-text {
   font-size: 20;
 }
+
+.details-image {
+  height: 100%;
+  width: 100%;
+}
+
+.details-image-wrap {
+  height: 300;
+  background-color: rgba(0,0,0, 0.85);
+}
+
+.details-image-loader {
+  height: 20%;
+  margin-top: 40%;
+  margin-bottom: 40%;
+}
