@@ -56,6 +56,7 @@ export class LoansListPage {
   }
 
   public ngOnInit() {
+    this.page.actionBarHidden = true;
     this._handleFetchLoans();
   }
 
