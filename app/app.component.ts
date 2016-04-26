@@ -19,6 +19,6 @@ export class KivaApp {
   public ngOnInit() {
     // On android, the action bar is shown by default
     this.page = <Page>topmost().currentPage;
-    //this.page.actionBarHidden = true;
+    this.page.actionBarHidden = true;
   }
 }

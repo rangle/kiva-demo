@@ -11,6 +11,7 @@ import { LoanCard, FiltersModal } from '../../components';
 import { DEFAULT_FILTER, BASE_OFFSET } from '../../app.config';
 // TODO: Probably better to build a more generic modal service
 import { ModalDialogService, ModalDialogOptions, ModalDialogHost } from 'nativescript-angular/directives/dialogs';
+
 @Component({
   selector: 'loans-list-page',
   templateUrl: 'pages/list-page/list-page.html',
@@ -56,7 +57,6 @@ export class LoansListPage {
   }
 
   public ngOnInit() {
-    this.page.actionBarHidden = true;
     this._handleFetchLoans();
   }
 
