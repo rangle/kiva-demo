@@ -20,6 +20,10 @@ ActionBar {
   color: #fff;
   padding-top: 10;
 }
+
+ListView {
+  background-color: white;
+}
 .title {
   font-size: 17;
   horizontal-align: center;
@@ -39,136 +43,9 @@ ActionBar {
   padding-left: 15;
   padding-right: 15;
 }
-.actionBarStatusBar {
-  margin-top: -20;
-}
 .actionBar-actionItem {
   color: #fff;
 }
-
-/*
-  Loan Card Styles
-*/
-
-/* Ideally these will be put in an app scoped file
-* not working for some reason */
-.location-select-wrap {
-  padding: 0;
-  background-color: #52D800;
-}
-.location-select-button {
-  background-color: transparent;
-  border-width: 1;
-  border-color: #52D800;
-  color: white;
-}
-.loan {
-  padding: 17;
-}
-.loanContent {
-  width: 60%;
-  padding-right: 10;
-}
-.loanSectionLabel {
-  text-transform: uppercase;
-  color: #666;
-  font-size: 10;
-}
-.loanUse {
-  color: #236133;
-  font-size: 16;
-  margin-bottom: 5;
-}
-.loanAmount {
-  font-size: 12;
-  font-weight: bold;
-  margin-bottom: 5;
-  color: #666;
-}
-.loanProgress-max {
-  height: 5;
-  width: 100%;
-  background-color: #eee;
-  border-radius: 2;
-  margin-bottom: 5;
-}
-.loanProgress-value {
-  height: 5;
-  background-color: #52D800;
-}
-.loanFunding {
-  margin-bottom: 10;
-}
-.loanFunding label {
-  font-size: 12;
-  color: #666;
-}
-.loanBorrower-location label{
-  font-size: 12;
-  color: #666;
-}
-.loanImage { width: 40%; }
-.loanImage-filter {
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-/*
-  Filter List Styles
-*/
-
-.cityFilterModal {
-  background-color: #236133;
-  margin-top: -20;
-}
-.cityListHeading {
-  text-transform: uppercase;
-  font-size: 10;
-  color: #666;
-  border-bottom: 1px solid #ddd;
-}
-.cityList {
-  border-radius: 2;
-  border-width: 1;
-  border-color: #ddd;
-  margin-right: 25;
-  margin-left: 25;
-}
-.cityListCurrent {
-  background-color: #fff;
-  border-radius: 2;
-  border: 1px solid #ddd;
-  margin-top: 25;
-  margin-left: 25;
-  margin-right: 25;
-}
-.cityListItem {
-  border-top: 1px solid #ddd;
-  font-size: 14;
-  padding-left: 20;
-  left: 50%;
-  color: #333;
-}
-.modalActionBar {
-  height: 70;
-  padding-top: 10;
-  padding-left: 15;
-  padding-right: 15;
-}
-.closeModal {
-  width: 16;
-  height: 16;
-  vertical-align: center;
-  background-image: url('~/images/Close.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 20;
-  z-index: 1;
-}
-.modalTitle {
-  color: #fff;
-  text-align: center;
-}
-
 /*
   Misc.
 */

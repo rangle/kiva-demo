@@ -1,8 +1,5 @@
 import { Http } from 'angular2/http';
-import {
-  Inject,
-  Injectable
-} from 'angular2/core';
+import { Inject, Injectable } from 'angular2/core';
 import { mapToLoan } from '../utils';
 
 @Injectable()

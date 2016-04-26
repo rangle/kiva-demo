@@ -9,14 +9,22 @@ import { KivaApi } from '../../core/kiva-api-service';
 import { LoansService } from '../../core/loans-service';
 import { LoanCard, FiltersModal } from '../../components';
 import { DEFAULT_FILTER, BASE_OFFSET } from '../../app.config';
+
 // TODO: Probably better to build a more generic modal service
-import { ModalDialogService, ModalDialogOptions, ModalDialogHost } from 'nativescript-angular/directives/dialogs';
+import {
+  ModalDialogService,
+  ModalDialogOptions,
+  ModalDialogHost
+} from 'nativescript-angular/directives/dialogs';
 
 @Component({
   selector: 'loans-list-page',
   templateUrl: 'pages/list-page/list-page.html',
   directives: [LoanCard, ModalDialogHost],
-  providers: [ModalDialogService]
+  providers: [ModalDialogService],
+  styleUrls: [
+    'pages/list-page/list-page.css',
+    'pages/list-page/list-page-shared.css'],
 })
 export class LoansListPage {
   // TODO: move this to a service
@@ -100,5 +108,10 @@ export class LoansListPage {
           this.applyFilter(filter);
         }
       })
+  }
+
+  public selectLoan(event) {
+    const selectedLoan: Loan = this.LoansService.getByIndex(event.index);
+    this.LoansService.selectLoan(selectedLoan);
   }
 }

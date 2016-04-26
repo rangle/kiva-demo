@@ -32,4 +32,6 @@ export interface Loan {
   location: LoanLocation;
   image: any;
   imageId: number;
+  businessDescription: string;
+  purpose: string;
 }

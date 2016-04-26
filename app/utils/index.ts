@@ -49,16 +49,19 @@ export function mapToLoan(item: any): Loan {
       lat: item.properties.location.country.geocode.latitude,
       long: item.properties.location.country.geocode.longitude,
     },
-    borrowerCount: item.properties.borrowerCount
+    borrowerCount: item.properties.borrowerCount,
+    purpose: item.properties.purpose,
+    businessDescription: item.properties.businessDescription
   };
   return output;
 }
 
-export function getImageSrc(imageId: number) : string {
+export function getImageSrc(imageId: number, size: number = 128) : string {
   // return 'http://www.kiva.org/img/128/' + imageId + '.jpg';
-  return `http://www-dev-kiva-org.global.ssl.fastly.net/img/128/${imageId}.jpg`;
+  return `http://www-dev-kiva-org.global.ssl.fastly.net/img/${size}/${imageId}.jpg`;
 }
 
-export function calcFundingProgress(goal: number, funded: number) : number {
-  return Math.round((funded / goal) * 100);
+export function calcFundingProgress(goal: number | string,
+  funded: number | string) : number {
+  return Math.round((Number(funded) / Number(goal)) * 100);
 }

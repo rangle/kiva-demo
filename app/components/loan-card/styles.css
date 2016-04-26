@@ -1,0 +1,40 @@
+.loan {
+  padding: 17;
+}
+.loanContent {
+  width: 60%;
+  padding-right: 10;
+}
+.loanSectionLabel {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 10;
+}
+.loanUse {
+  color: #236133;
+  font-size: 16;
+  margin-bottom: 5;
+}
+.loanAmount {
+  font-size: 12;
+  font-weight: bold;
+  margin-bottom: 5;
+  color: #666;
+}
+
+.loanFunding {
+  margin-bottom: 10;
+}
+.loanFunding label {
+  font-size: 12;
+  color: #666;
+}
+.loanBorrower-location label{
+  font-size: 12;
+  color: #666;
+}
+.loanImage { width: 40%; }
+.loanImage-filter {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}

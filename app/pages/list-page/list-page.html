@@ -6,14 +6,21 @@
       [text]="(selectedFilter || 'All Cities') + ' &#xf2f2; '">
     </Button>
   </DockLayout>
-<StackLayout class="loans-page" modal-dialog-host>
+  <StackLayout class="loans-page" modal-dialog-host>
+    <ListView [items]="LoansService.loans"
+      id="loans-list"
+      (loadMoreItems)="onLoadMore()"
+      (itemTap)="selectLoan($event)">
+      <template #loan="item">
+        <loan-card [loan]="loan"></loan-card>
+      </template>
+    </ListView>
 
-  <ListView [items]="LoansService.loans" id="loans-list" (loadMoreItems)="onLoadMore()">
-    <template #loan="item">
-      <loan-card [loan]="loan"></loan-card>
-    </template>
-  </ListView>
+    <ActivityIndicator [busy]="isLoading">
+    </ActivityIndicator>
 
-  <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
-  <Label text="No loans to display" *ngIf="error" horizontalAlignment="center"></Label>
+    <Label text="No loans to display" *ngIf="error" horizontalAlignment="center">
+    </Label>
+
+  </StackLayout>
 </StackLayout>

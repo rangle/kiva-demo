@@ -1,0 +1,24 @@
+<StackLayout>
+  <Image [src]="getDetailsImage()"></Image>
+
+  <StackLayout class="details-wrap">
+    <StackLayout class="funding-details">
+      <StackLayout orientation="horizontal">
+        <Label [text]="getPercentText()"
+          class="jumbo green bold va-bottom">
+        </Label>
+        <Label [text]="getProgressText()"
+          class="bold va-bottom progress-text p5">
+        </Label>
+      </StackLayout>
+      <progress-bar [goal]="loan.loanAmount.amount"
+        [progress]="loan.fundedAmount.amount"
+        height="20">
+      </progress-bar>
+      <StackLayout orientation="horizontal">
+        <Label [text]="'Total loan: $' + loan.loanAmount.amount">
+        </Label>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</StackLayout>
