@@ -32,7 +32,7 @@ import { ROUTES } from './constants';
   },
 ])
 export class KivaApp {
-  private page: any = null;
+  private page: Page;
   public ngOnInit() {
     // On android, the action bar is shown by default
     this.page = <Page>topmost().currentPage;

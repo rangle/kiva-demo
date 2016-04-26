@@ -12,9 +12,6 @@ import application = require('application');
 import platform = require('platform');
 import { NS_ROUTER_PROVIDERS } from "nativescript-angular/router";
 
-// Making the status bar transparent and white
-setStatusBarColors();
-
 // Register fonts (iOS)
 // GOTHAM
 // fontModule.ios.registerFont('GOTHAM-BLACK.TTF');
@@ -42,6 +39,8 @@ if(platform.device.os === platform.platformNames.android) {
             // Changing the SplashTheme for AppTheme
             const id = activity.getResources().getIdentifier("AppTheme", "style", activity.getPackageName());
             activity.setTheme(id);
+            // //Making the status bar transparent and white
+            setStatusBarColors();
         }
     }
 }

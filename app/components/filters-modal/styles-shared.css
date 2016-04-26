@@ -3,6 +3,7 @@
 */
 .cityFilterModal {
   background-color: #236133;
+  padding-bottom: 25;
 }
 .cityListHeading {
   text-transform: uppercase;
@@ -11,7 +12,7 @@
   border-bottom: 1px solid #ddd;
 }
 .cityList {
-  border-radius: 2;
+  border-radius: 5;
   border-width: 1;
   border-color: #ddd;
   margin-right: 25;
@@ -34,21 +35,31 @@
 }
 .modalActionBar {
   height: 70;
-  padding-top: 10;
-  padding-left: 15;
-  padding-right: 15;
+  width: 100%;
 }
 .closeModal {
   width: 16;
   height: 16;
   vertical-align: center;
-  background-image: url('~/images/Close.png');
   background-repeat: no-repeat;
   background-size: contain;
+  font-size: 20;
   padding: 20;
   z-index: 1;
 }
+
+.close {
+  border-width: 1;
+  border-color: transparent;
+  background-color: transparent;
+  height: 100%;
+  width: 20%;
+  font-size: 30;
+  color: white;
+}
 .modalTitle {
+  width: 100%;
+  padding: 25;
   color: #fff;
   text-align: center;
 }

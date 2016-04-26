@@ -1,6 +1,6 @@
-import * as application from "application";
-import * as platform from "platform";
-
+import * as application from 'application';
+import * as platform from 'platform';
+import * as color from 'color';
 declare var android: any;
 declare var UIResponder: any;
 declare var UIStatusBarStyle: any;
@@ -32,15 +32,17 @@ export function setStatusBarColors() {
       if (application.android && platform.device.sdkVersion >= "21") {
         var View = android.view.View;
         var window = application.android.startActivity.getWindow();
-        window.setStatusBarColor(0x000000);
+        window.setStatusBarColor(new color.Color('#236133').android);
 
-        var decorView = window.getDecorView();
-        decorView.setSystemUiVisibility(
-          View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-          | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-          | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-          | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        // var decorView = window.getDecorView();
+        // decorView.setSystemUiVisibility(
+        //   View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        //   | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        //   | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        //   | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
       }
+
+      // const statusHeight = getStatusBarHeight();
     }
   }
 }
