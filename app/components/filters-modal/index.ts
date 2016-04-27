@@ -1,6 +1,6 @@
 import { Component, Inject } from 'angular2/core';
 import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
-
+import { CITY_FILTERS } from '../../constants';
 @Component({
   selector: 'filters-modal',
   templateUrl: 'components/filters-modal/template.html',
@@ -14,20 +14,7 @@ import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
 export class FiltersModal {
   public currentFilter: string;
   public selectedFilterIndex: number;
-  private filters: any[] = [
-    'San Francisco,CA',
-    'New York,NY',
-    'Los Angeles,CA',
-    'Detroit,MI',
-    'Little Rock,AR',
-    'Louisville,KT',
-    'Newark,NJ',
-    'New Orleans,LA',
-    'Philadelphia,PA',
-    'Pittsburg,PA',
-    'Richmond,VA',
-    'Washington D.C.,DC'
-  ];
+  private filters: any[] = CITY_FILTERS;
   constructor(@Inject(ModalDialogParams) private params: ModalDialogParams) {
     this.currentFilter = params.context.filter || 'None';
   }

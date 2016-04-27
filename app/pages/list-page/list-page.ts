@@ -2,13 +2,13 @@ import 'reflect-metadata';
 import 'rxjs/add/operator/map';
 import { Component, Inject } from 'angular2/core';
 // Types
-import { Loan } from '../../globals.d';
+import { Loan, Filter } from '../../globals.d';
 import { mapToLoan, getImageSrc } from '../../utils';
 import { fetchAndCache } from '../../utils/native-image-utils';
 import { KivaApi } from '../../core/kiva-api-service';
 import { LoansService } from '../../core/loans-service';
 import { LoanCard, FiltersModal } from '../../components';
-import { DEFAULT_FILTER, BASE_OFFSET } from '../../app.config';
+import { DEFAULT_FILTER, BASE_OFFSET } from '../../constants';
 
 // TODO: Probably better to build a more generic modal service
 import {
@@ -28,13 +28,11 @@ import {
 })
 export class LoansListPage {
   // TODO: move this to a service
-  private searchParams: any = DEFAULT_FILTER;
+  private searchParams: any = DEFAULT_FILTER.value;
+  private selectedFilter: Filter = DEFAULT_FILTER;
   private isLoading: boolean = false;
   private currentOffset: number = BASE_OFFSET;
   private error: boolean = false;
-
-  private selectedFilter: string = '';
-
   constructor(@Inject(KivaApi) private api: KivaApi,
     @Inject(LoansService) private LoansService: LoansService,
     @Inject(ModalDialogService) private modal: ModalDialogService) {
@@ -78,18 +76,15 @@ export class LoansListPage {
   }
 
   public clearFilter() {
-    this.searchParams = DEFAULT_FILTER;
+    this.searchParams = DEFAULT_FILTER.value;
     this.currentOffset = BASE_OFFSET;
     this.LoansService.clearLoans();
     this._handleFetchLoans();
   }
 
-  public applyFilter(filter) {
+  public applyFilter(filter: Filter) {
     this.selectedFilter = filter;
-    //TODO: put this in separate function
-    this.searchParams = {
-      'city_state': this.selectedFilter
-    };
+    this.searchParams = filter.value;
     this.currentOffset = BASE_OFFSET;
     this.LoansService.clearLoans();
     this._handleFetchLoans();
@@ -102,7 +97,7 @@ export class LoansListPage {
     };
 
     this.modal.showModal(FiltersModal, options)
-      .then((filter) => {
+      .then((filter: Filter) => {
         // This is when the modal is closed
         if (filter) {
           this.applyFilter(filter);

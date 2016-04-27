@@ -35,3 +35,8 @@ export interface Loan {
   businessDescription: string;
   purpose: string;
 }
+
+export interface Filter {
+  name: string;
+  value: any;
+}

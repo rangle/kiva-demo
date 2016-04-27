@@ -3,7 +3,7 @@
     class="actionBar  kiva-dark-green">
     <Button (tap)="showModal()"
       class="actionBar-actionItem material-icon"
-      [text]="(selectedFilter || 'All Cities') + ' &#xf2f2; '">
+      [text]="selectedFilter.name + ' &#xf2f2; '">
     </Button>
   </DockLayout>
   <StackLayout
