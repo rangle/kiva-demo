@@ -32,8 +32,13 @@ export interface Loan {
   location: LoanLocation;
   image: any;
   imageId: number;
-  businessDescription: string;
   purpose: string;
+  businessName: string;
+  businessDescription: string;
+  socialLinksWebsite: string;
+  socialLinksFacebook: string;
+  socialLinksTwitter: string;
+  lenderRepaymentTerm: string;
 }
 
 export interface Filter {

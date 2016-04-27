@@ -36,6 +36,17 @@ export class LoanDetails {
 
   }
 
+  public getFundingPercent(goal: string, funded: string) : string {
+    return String(calcFundingProgress(Number(goal), Number(funded)) + 1) + '%';
+  }
+
+  public getFundingText() {
+    return this.loan.location.town ?
+      `${this.loan.name} in ${this.loan.location.town}, ` +
+        `${this.loan.location.state}` :
+      this.loan.name;
+  }
+
   public getPercentText() {
     const percent: number = calcFundingProgress(
       this.loan.loanAmount.amount,
@@ -49,4 +60,3 @@ export class LoanDetails {
     return ` funded, $${toGo} to go`;
   }
 }
-

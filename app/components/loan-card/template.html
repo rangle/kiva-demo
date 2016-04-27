@@ -1,14 +1,14 @@
 <StackLayout orientation="horizontal" class="loan">
-  <StackLayout class="loanContent">
+  <StackLayout class="loanCardContent">
     <StackLayout class="loanAbout" >
-      <Label [text]="loan.sector.name+' - '+loan.activity.name"
+      <Label [text]="loan.activity.name"
         textwrap="true"
         class="loanAbout-categories loanSectionLabel">
       </Label>
-      <Label [text]="loan.use" textwrap="true" class="loanUse"></Label>
+      <Label [text]="'Loan to '+loan.use" textwrap="true" class="loanUse"></Label>
     </StackLayout>
 
-    <StackLayout class="loanProgress">
+    <StackLayout class="loanProgress pb5">
       <StackLayout class="loanAmount" orientation="horizontal">
         <Label [text]="'$' + loan.loanAmount.amount"></Label>
         <Label text=" needed"></Label>
@@ -16,7 +16,8 @@
       <progress-bar [goal]="loan.loanAmount.amount"
         [progress]="loan.fundedAmount.amount">
       </progress-bar>
-      <StackLayout class="loanFunding" orientation="horizontal">
+      <StackLayout class="loanFunding pb5"
+        orientation="horizontal">
         <Label [text]="getFundingPercent(loan.loanAmount.amount, loan.fundedAmount.amount) + ' funded by '">
         </Label>
         <Label [text]=" loan.borrowerCount + ' lender(s)'"></Label>
