@@ -16,7 +16,7 @@
       <progress-bar [goal]="loan.loanAmount.amount"
         [progress]="loan.fundedAmount.amount">
       </progress-bar>
-      <StackLayout class="loanFunding pb5"
+      <StackLayout class="loanFunding pb5  "
         orientation="horizontal">
         <Label [text]="getFundingPercent(loan.loanAmount.amount, loan.fundedAmount.amount) + ' funded by '">
         </Label>
