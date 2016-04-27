@@ -4,6 +4,10 @@ import { Component, Inject, Input } from 'angular2/core';
 import { LoansService } from '../../core/loans-service';
 import { LoanDetails } from '../../components';
 import { Loan } from '../../globals.d';
+import { RouterService } from '../../core/router-service';
+import { ROUTES } from '../../constants';
+import { topmost } from 'ui/frame';
+import { Page } from 'ui/page';
 
 @Component({
   selector: 'loan-details-page',
@@ -16,6 +20,11 @@ import { Loan } from '../../globals.d';
   providers: [],
 })
 export class LoanDetailsPage {
-  constructor(@Inject(LoansService) private loansStore: LoansService) {
+  constructor(@Inject(LoansService) private loansStore: LoanDetails) {
+  }
+  private page: Page;
+  ngAfterContentChecked() {
+    this.page = <Page>topmost().currentPage;
+    this.page.actionBarHidden = true;
   }
 }
