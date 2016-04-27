@@ -1,14 +1,15 @@
-<StackLayout class="loans-page kiva-dark-green actionBarStatusBar">
+<StackLayout class="loans-page actionBarStatusBar">
   <DockLayout orientation="vertical"
-    class="actionBar">
+    class="actionBar  kiva-dark-green">
     <Button (tap)="showModal()"
       class="actionBar-actionItem material-icon"
       [text]="(selectedFilter || 'All Cities') + ' &#xf2f2; '">
     </Button>
   </DockLayout>
-  <StackLayout class="loans-page" modal-dialog-host>
+  <StackLayout
+    modal-dialog-host>
     <ListView [items]="LoansService.loans"
-      id="loans-list"
+      class="loans-list"
       (loadMoreItems)="onLoadMore()"
       (itemTap)="selectLoan($event)">
       <template #loan="item">
@@ -19,7 +20,9 @@
     <ActivityIndicator [busy]="isLoading">
     </ActivityIndicator>
 
-    <Label text="No loans to display" *ngIf="error" horizontalAlignment="center">
+    <Label text="No loans to display"
+      *ngIf="error"
+      horizontalAlignment="center">
     </Label>
 
   </StackLayout>
