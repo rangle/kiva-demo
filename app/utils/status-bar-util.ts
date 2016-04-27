@@ -33,6 +33,7 @@ export function setStatusBarColors() {
         var View = android.view.View;
         var window = application.android.startActivity.getWindow();
         window.setStatusBarColor(new color.Color('#236133').android);
+        // window.setStatusBarColor(0x000000);
 
         // var decorView = window.getDecorView();
         // decorView.setSystemUiVisibility(
@@ -41,8 +42,19 @@ export function setStatusBarColors() {
         //   | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         //   | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
       }
-
-      // const statusHeight = getStatusBarHeight();
     }
   }
+}
+
+export function getStatusBarHeight() {
+  let result = 0;
+  let resourceId = application.android.currentContext
+    .getResources()
+    .getIdentifier('status_bar_height', 'dimen', 'android');
+  if (resourceId > 0) {
+    result = application.android.currentContext
+      .getResources()
+      .getDimensionPixelSize(resourceId);
+  }
+  return result;
 }
