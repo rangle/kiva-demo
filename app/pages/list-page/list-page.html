@@ -1,11 +1,11 @@
 <StackLayout class="loans-page actionBarStatusBar">
-  <DockLayout orientation="vertical"
-    class="actionBar  kiva-dark-green">
+  <AbsoluteLayout orientation="horizontal"
+    class="actionBar kiva-dark-green">
     <Button (tap)="showModal()"
-      class="actionBar-actionItem material-icon"
+      class="actionBar-title actionBar-center material-icon"
       [text]="selectedFilter.name + ' &#xf2f2; '">
     </Button>
-  </DockLayout>
+  </AbsoluteLayout>
   <StackLayout
     modal-dialog-host>
     <ListView [items]="LoansService.loans"

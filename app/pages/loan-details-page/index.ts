@@ -8,9 +8,9 @@ import { Loan } from '../../globals.d';
 @Component({
   selector: 'loan-details-page',
   template: `
-    <StackLayout>
+    <ScrollView>
       <loan-details [loan]="loansStore.selectedLoan"></loan-details>
-    </StackLayout>
+    </ScrollView>
   `,
   directives: [LoanDetails],
   providers: [],

@@ -1,33 +1,109 @@
-<StackLayout>
-  <StackLayout class="details-image-wrap">
-    <ActivityIndicator *ngIf="isLoading"
-      [busy]="isLoading"
-      class="details-image-loader">
-    </ActivityIndicator>
-    <Image [src]="detailsImageSrc"
-      *ngIf="detailsImageSrc"
-      class="details-image">
-    </Image>
-  </StackLayout>
+<StackLayout class="loanDetails">
+  <StackLayout class="loanDetails-Container"
+    orientation="vertical">
 
-  <StackLayout class="details-wrap">
-    <StackLayout class="funding-details">
-      <StackLayout orientation="horizontal">
-        <Label [text]="getPercentText()"
-          class="jumbo green bold va-bottom">
-        </Label>
-        <Label [text]="getProgressText()"
-          class="bold va-bottom progress-text p5">
-        </Label>
-      </StackLayout>
-      <progress-bar [goal]="loan.loanAmount.amount"
-        [progress]="loan.fundedAmount.amount"
-        height="20">
-      </progress-bar>
-      <StackLayout orientation="horizontal">
-        <Label [text]="'Total loan: $' + loan.loanAmount.amount">
-        </Label>
-      </StackLayout>
+    <StackLayout class="loanDetailsImage-container"
+      orientation="vertical">
+      <ActivityIndicator *ngIf="isLoading"
+        [busy]="isLoading"
+        class="loanDetailsImage-preloader">
+      </ActivityIndicator>
+      <Image [src]="detailsImageSrc"
+        *ngIf="detailsImageSrc"
+        class="loanDetailsImage">
+      </Image>
     </StackLayout>
+
+    <Border class="separator"></Border>
+
+    <StackLayout class="loanDetailsContent">
+      <StackLayout class="loanAbout listPadding" >
+        <Label textwrap="true"
+          [text]="getFundingText()"
+          class="loanDetailTitle pb5">
+        </Label>
+        <Label [text]="'Loan to '+loan.use" textwrap="true" class="loanUse"></Label>
+        <Label [text]="loan.sector.name+' - '+loan.activity.name"
+          textwrap="true"
+          class="loanAbout-categories loanSectionLabel">
+        </Label>
+
+        <Border class="separator separatorSpacing"></Border>
+
+        <StackLayout orientation="vertical"
+          class="loanInfo">
+          <Label class="loanSectionLabel pb5"
+            text="Loan: "></Label>
+
+          <StackLayout orientation="horizontal"
+            class="pb5">
+            <Label [text]="getPercentText()"
+              class="jumbo green bold">
+            </Label>
+            <Label [text]="getProgressText()"
+              class="loanDetailText pt5">
+            </Label>
+          </StackLayout>
+        </StackLayout>
+        <progress-bar [goal]="loan.loanAmount.amount"
+          [progress]="loan.fundedAmount.amount">
+        </progress-bar>
+        <StackLayout class="loanFunding" orientation="horizontal">
+          <Label [text]="getFundingPercent(loan.loanAmount.amount, loan.fundedAmount.amount) + ' funded by '">
+          </Label>
+          <Label [text]=" loan.borrowerCount + ' lender(s)'"></Label>
+        </StackLayout>
+
+        <Border class="separator separatorSpacing"></Border>
+
+        <StackLayout orientation="horizontal">
+          <Label text="Loan Amount: "
+            class="loanDetailText"></Label>
+          <Label [text]="'$' + loan.loanAmount.amount"
+            class="loanDetailText"></Label>
+        </StackLayout>
+
+        <StackLayout orientation="horizontal">
+          <Label text="Repayment Term: "
+            class="loanDetailText"></Label>
+          <Label [text]="loan.lenderRepaymentTerm + 'months'"
+            class="loanDetailText"></Label>
+        </StackLayout>
+
+      </StackLayout>
+
+      <Border class="separator"></Border>
+
+      <StackLayout class="loanBorrower listPadding">
+        <StackLayout orientation="vertical"
+          class="loanBorrower-name">
+          <Label class="loanSectionLabel pb5"
+            text="About Loan: "></Label>
+          <Label textwrap="true"
+            [text]="loan.purpose"
+            class="loanDetailText">
+          </Label>
+        </StackLayout>
+      </StackLayout>
+
+      <Border class="separator"></Border>
+
+      <StackLayout class="loanBusiness listPadding">
+        <StackLayout orientation="vertical">
+          <Label class="loanSectionLabel pb5"
+            text="About Business: "></Label>
+          <Label textwrap="true"
+            [text]="loan.businessName"
+            class="loanDetailTitle pb5">
+          </Label>
+          <Label textwrap="true"
+            [text]="loan.businessDescription"
+            class="loanDetailText">
+          </Label>
+        </StackLayout>
+      </StackLayout>
+
+    </StackLayout>
+
   </StackLayout>
 </StackLayout>

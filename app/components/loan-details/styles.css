@@ -1,31 +1,13 @@
-.jumbo {
-  font-size: 45;
-}
-
-.details-wrap {
-  padding: 10;
-}
-
-.va-bottom {
-  vertical-align: bottom;
-}
-
-.progress-text {
-  font-size: 20;
-}
-
-.details-image {
-  height: 100%;
+.loanDetailsImage-container {
+  height: 200;
   width: 100%;
+  background-color: #f5f5f5;
 }
-
-.details-image-wrap {
-  height: 300;
-  background-color: rgba(0,0,0, 0.85);
+.loanDetailTitle {
+  font-size: 18;
 }
-
-.details-image-loader {
-  height: 20%;
-  margin-top: 40%;
-  margin-bottom: 40%;
+.loanDetailText {
+  font-size: 14;
+  margin-bottom: 5;
+  color: #666;
 }

@@ -1,14 +1,14 @@
 <StackLayout orientation="vertical"
-  class="cityFilterModal">
+  class="cityFilterModal actionBarStatusBar">
   <AbsoluteLayout orientation="horizontal"
-    class="modalActionBar">
-    <Button class="close material-icon"
+    class="actionBar">
+    <Button class="leftActionItem-icon material-icon leftActionItem"
       text="&#xf136;"
       (tap)="selectFilter(null)"
       bottom="0">
     </Button>
     <Label text="Choose city"
-      class="modalTitle">
+      class="actionBar-title actionBar-center">
     </Label>
   </AbsoluteLayout>
   <ListView #filterList

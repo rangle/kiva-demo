@@ -51,7 +51,12 @@ export function mapToLoan(item: any): Loan {
     },
     borrowerCount: item.properties.borrowerCount,
     purpose: item.properties.purpose,
-    businessDescription: item.properties.businessDescription
+    businessDescription: item.properties.businessDescription,
+    businessName: item.properties.businessName,
+    socialLinksWebsite: item.properties.socialLinks.website_url,
+    socialLinksFacebook: item.properties.socialLinks.facebook_url,
+    socialLinksTwitter: item.properties.socialLinks.twitter_url,
+    lenderRepaymentTerm: item.properties.lenderRepaymentTerm,
   };
   return output;
 }
