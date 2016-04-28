@@ -13,7 +13,9 @@
       (loadMoreItems)="onLoadMore()"
       (itemTap)="selectLoan($event)">
       <template #loan="item">
-        <loan-card [loan]="loan"></loan-card>
+        <GridLayout>
+          <loan-card [loan]="loan"></loan-card>
+        </GridLayout>
       </template>
     </ListView>
 
