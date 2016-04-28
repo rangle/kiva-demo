@@ -60,5 +60,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+  <dict>
+  	<key>NSExceptionDomains</key>
+    <dict>
+    	<key>www-dev-kiva-org.global.ssl.fastly.net</key>
+      <dict>
+      	<key>NSExceptionAllowsInsecureHTTPLoads</key>
+        <true/>
+        <key>NSIncludesSubdomains</key>
+        <true/>
+      </dict>
+  	</dict>
+  </dict>
 </dict>
 </plist>
