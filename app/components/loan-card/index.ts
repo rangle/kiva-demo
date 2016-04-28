@@ -9,7 +9,10 @@ import { ProgressBar } from '../progress-bar';
   selector: 'loan-card',
   directives: [ProgressBar],
   templateUrl: 'components/loan-card/template.html',
-  styleUrls: ['components/loan-card/styles.css']
+  styleUrls: [
+    'components/loan-card/styles.css',
+    'components/loan-card/styles-shared.css'
+  ]
 })
 export class LoanCard {
   @Input() loan: Loan;
