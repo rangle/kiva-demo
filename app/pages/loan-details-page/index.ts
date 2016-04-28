@@ -8,7 +8,7 @@ import { RouterService } from '../../core/router-service';
 import { ROUTES } from '../../constants';
 import { topmost } from 'ui/frame';
 import { Page } from 'ui/page';
-
+import { isAndroid } from '../../utils/platform';
 @Component({
   selector: 'loan-details-page',
   template: `
@@ -24,7 +24,9 @@ export class LoanDetailsPage {
   }
   private page: Page;
   ngAfterContentChecked() {
-    this.page = <Page>topmost().currentPage;
-    this.page.actionBarHidden = true;
+    if (isAndroid()) {
+      this.page = <Page>topmost().currentPage;
+      this.page.actionBarHidden = true;
+    }
   }
 }
