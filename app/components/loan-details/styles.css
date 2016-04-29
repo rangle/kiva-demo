@@ -1,14 +1,1 @@
-.loanDetailsImage-container {
-  width: 100%;
-  background-color: #f5f5f5;
-}
-.loanDetailTitle {
-  font-size: 18;
-}
-.loanDetailText {
-  font-size: 14;
-  margin-bottom: 5;
-  color: #666;
-}
-
-
+.loanDetailsImage-container { width: 100%; }

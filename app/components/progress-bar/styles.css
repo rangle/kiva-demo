@@ -1,9 +1,1 @@
-.loanProgress-value {
-  background-color: #52D800;
-}
-.loanProgress-max {
-  width: 100%;
-  background-color: #eee;
-  border-radius: 2;
-  margin-bottom: 5;
-}
+.loanProgress-max { width: 100%; }

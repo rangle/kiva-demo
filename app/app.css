@@ -1,129 +1,120 @@
+/*    Reference to platform specific global styles
+        NativeScript uses the styles in
+        platform.android.css or
+        platform.ios.csss
+        base on the platform the application is being built on    */
 @import url("~/platform.css");
-Button {
-  border-width: 1;
-  border-color: transparent;
-  background-color: transparent;
-}
 
-/*
-  Utility Styles
-  (styles rules that you want to keep consistent across all elements)
-*/
-.br2 { border-radius: 2; }
-.br3 { border-radius: 3; }
-.bold { font-weight: bold; }
-.p5 { padding: 5; } /* remove / replace */
+/*    Utility Styles
+        styles rules that
+        you want to keep consistent
+        across all elements    */
+
+/*    Type scale               */
+.iconActionSize,
+.size30 { font-size: 30; }
+.h1,
+.size18 { font-size: 18; }
+.h2,
+.size16 { font-size: 16; }
+.h3,
+.size14 { font-size: 14; }
+.h4,
+.size12 { font-size: 12; }
+.h5,
+.size10 { font-size: 10; }
+
+/*    Type color              */
+.kivaDarkGreen { color: #236133; }
+.deEmphasized { color: #666; }
+.white { color: #FFF; }
+
+/*    Type appearance         */
+.bold { font-weight: bold; }  /* Currently, native script only supports normal, bold */
+.upper { text-transform: uppercase; }
+
+/*    Inside spacing         */
 .pt5 { padding-top: 5; }
 .pb5 { padding-bottom: 5; }
-.baseline { vertical-align: bottom; }
-.listPadding { padding: 20; }
-.kiva-dark-green { background-color: #236133; } /* remove / replace */
-.green { color: green; } /* remove / replace */
-.material-icon {
-  font-family: 'Material-Design-Iconic-Font';
-}
-.separator {
-  border-width: 0.5;
-  border-color: #ddd;
-}
-.separatorSpacing {
-  margin-top: 20;
-  margin-bottom: 20;
-}
+.pl20 { padding-left: 20; }
 
+.px5 {
+  padding-right: 5;
+  padding-left: 5; }
+.px10 {
+  padding-right: 10;
+  padding-left: 10; }
+.px15 {
+  padding-right: 15;
+  padding-left: 15; }
+
+.py10 {
+  padding-top: 10;
+  padding-bottom: 10; }
+
+.p5 { padding: 5; }
+.p20 { padding: 20; }
+
+/*    Outside spacing        */
+.mt5 { margin-top: 5; }
+.mt10 { margin-top: 10; }
+.mt20 { margin-top: 50; }
+
+.mb5 { margin-bottom: 5; }
+.mb10 { margin-bottom: 10; }
+.mb20 { margin-bottom: 50; }
+
+.my20 {
+  margin-top: 20;
+  margin-bottom: 20; }
+
+/*    zIndex positioning      */
+.z1 { z-index: 1; }
+
+/*    Borders                 */
+.br2 { border-radius: 2; }  /*  used on smaller elements like the progress bar  */
+.br3 { border-radius: 3; }  /*  used on larger elements like the loan image      */
+
+.greyBorder {
+  border-width: 0.5;
+  border-color: #ddd; }
+
+/*    Background colors       */
+.kivaDarkGreen-bg { background-color: #236133; }
+.kivaHighlightGreen-bg { background-color: #52D800; }
+.white-bg { background-color: #fff; }
+.lightGrey-bg { background-color: #f5f5f5; }
+.grey-bg { background-color: #ccc; }
+.imageFilter-bg { background-color: rgba(0, 0, 0, 0.2); }
+
+/*    Material Icon fonts
+        http://zavoloklom.github.io/material-design-iconic-font/icons.html
+        add this class
+        then add the icon identifier prefixed with &#x to the markup
+        end with ;
+        e.g. &#xf136;         */
+.materialIcon { font-family: 'Material-Design-Iconic-Font'; }
+
+/*    Positioning             */
+.baseline { vertical-align: bottom; }
+.alignLeft { text-align: left; }
+.alignCenter { text-align: center; }
 /*
-  Action Bar Styles
-*/
+      Component Styles
+        component styles for
+        global components not yet in component files and
+        native component styles        */
+
+/*    Native Action Bar Styles         */
 ActionBar {
   background-color: rgba(35,97,51, 1);
   color: #fff;
-  padding-top: 10;
-}
-ListView {
-  background-color: white;
-}
-.title {
-  font-size: 17;
-  horizontal-align: center;
-  margin: 5;
-}
-.logo {
-  width: 70;
-  height: 20;
-  vertical-align: center;
-  background-image: url('~/images/Kiva.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
+  padding-top: 10; }
+
+/*    Native list view styles   */
+ListView { background-color: white; }
+
+/*    ActionBar Styles        */
 .leftActionItem {
   width: 20%;
-  height: 100%;
-  border-width: 1;
-  border-color: transparent;
-  background-color: transparent;
-  text-align: left;
-  z-index: 1;
-}
-.leftActionItem-icon {
-  font-size: 30;
-  color: white;
-}
-/*
-  Loan Global Styles
-*/
-.loan {
-  padding: 17;
-}
-.loanSectionLabel {
-  text-transform: uppercase;
-  color: #666;
-  font-size: 10;
-}
-.loanUse {
-  color: #236133;
-  font-size: 16;
-  margin-bottom: 5;
-}
-.loanAmount {
-  font-size: 12;
-  font-weight: bold;
-  margin-bottom: 5;
-  color: #666;
-}
-.loanFunding {
-  margin-bottom: 10;
-}
-.loanFunding label {
-  font-size: 12;
-  color: #666;
-}
-.loanBorrower-location label{
-  font-size: 12;
-  color: #666;
-}
-.loanImage { width: 40%; }
-.loanImage-filter {
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-/*
-  Misc.
-*/
-.filter-button { /* remove / replace */
-  border-color: #52D800;
-  border-radius: 2;
-  border-width: 1;
-  color: #52D800;
-  margin-bottom: 5;
-  margin-right: 5;
-}
-.location-item { /* remove / replace */
-  font-size: 20;
-  horizontal-align: center;
-}
-.city-filter {
-  padding-top: 10;
-  padding-bottom: 10;
-  padding-right: 5;
-  padding-left: 5;
-}
+  height: 100%; }

@@ -1,14 +1,14 @@
 <StackLayout orientation="vertical"
-  class="cityFilterModal actionBarStatusBar">
+  class="cityFilterModal actionBarStatusBar kivaDarkGreen-bg">
   <AbsoluteLayout orientation="horizontal"
-    class="actionBar">
-    <Button class="leftActionItem-icon material-icon leftActionItem"
+    class="actionBar px15">
+    <Button class="leftActionItem-icon materialIcon leftActionItem size30 white z1 alignLeft"
       text="&#xf136;"
       (tap)="selectFilter(null)"
       bottom="0">
     </Button>
     <Label text="Choose city"
-      class="actionBar-title actionBar-center actionBarItem-withIcon uppercaseReverse">
+      class="actionBar-title actionBar-center actionBarItem-withIcon uppercaseReverse alignCenter white">
     </Label>
   </AbsoluteLayout>
   <ListView #filterList
@@ -17,8 +17,9 @@
     row="0"
     class="cityList">
     <template #filter="item">
-      <StackLayout class="city-filter">
-        <Label [text]="filter.name" class="cityListItem"></Label>
+      <StackLayout class="cityFilter px5 py10">
+        <Label [text]="filter.name"
+          class="cityListItem size14 py10"></Label>
       </StackLayout>
     </template>
   </ListView>

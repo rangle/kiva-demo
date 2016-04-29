@@ -2,7 +2,7 @@
   <StackLayout class="loanDetails-Container"
     orientation="vertical">
 
-    <StackLayout class="loanDetailsImage-container"
+    <StackLayout class="loanDetailsImage-container lightGrey-bg"
       orientation="vertical">
       <ActivityIndicator *ngIf="isLoading"
         [busy]="isLoading"
@@ -14,91 +14,94 @@
       </Image>
     </StackLayout>
 
-    <Border class="separator"></Border>
+    <Border class="greyBorder"></Border>
 
     <StackLayout class="loanDetailsContent">
-      <StackLayout class="loanAbout listPadding" >
+      <StackLayout class="loanAbout p20" >
         <Label textwrap="true"
           [text]="getFundingText()"
-          class="loanDetailTitle pb5">
-        </Label>
-        <Label [text]="'Loan to '+loan.use" textwrap="true" class="loanUse"></Label>
+          class="loanDetailTitle size18 pb5"></Label>
+        <Label [text]="'Loan to '+loan.use"
+          textwrap="true"
+          class="loanUse size16 kivaDarkGreen mb5"></Label>
         <Label [text]="loan.sector.name+' - '+loan.activity.name"
           textwrap="true"
-          class="loanAbout-categories loanSectionLabel">
-        </Label>
+          class="loanAbout-categories loanSectionLabel size10 deEmphasized upper"></Label>
 
-        <Border class="separator separatorSpacing"></Border>
+        <Border class="greyBorder my20"></Border>
 
         <StackLayout orientation="vertical"
           class="loanInfo">
-          <Label class="loanSectionLabel pb5"
+          <Label class="loanSectionLabel size10 deEmphasized upper pb5"
             text="Loan: "></Label>
 
           <StackLayout orientation="horizontal"
             class="pb5">
             <Label [text]="getPercentText()"
-              class="jumbo green bold">
+              class="kivaDarkGreen bold">
             </Label>
             <Label [text]="getProgressText()"
-              class="loanDetailText pt5">
+              class="loanDetailText size14 deEmphasized mb5 pt5">
             </Label>
           </StackLayout>
         </StackLayout>
         <progress-bar [goal]="loan.loanAmount.amount"
           [progress]="loan.fundedAmount.amount">
         </progress-bar>
-        <StackLayout class="loanFunding" orientation="horizontal">
-          <Label [text]="getFundingPercent(loan.loanAmount.amount, loan.fundedAmount.amount) + ' funded by '">
+        <StackLayout class="loanFunding mb10"
+          orientation="horizontal">
+          <Label [text]="getFundingPercent(loan.loanAmount.amount, loan.fundedAmount.amount) + ' funded by '"
+            class="size12 deEmphasized">
           </Label>
-          <Label [text]=" loan.borrowerCount + ' lender(s)'"></Label>
+          <Label [text]=" loan.borrowerCount + ' lender(s)'"
+            class="size12 deEmphasized "></Label>
         </StackLayout>
 
-        <Border class="separator separatorSpacing"></Border>
+        <Border class="greyBorder my20"></Border>
 
         <StackLayout orientation="horizontal">
           <Label text="Loan Amount: "
-            class="loanDetailText"></Label>
+            class="loanDetailText size14 deEmphasized mb5"></Label>
           <Label [text]="'$' + loan.loanAmount.amount"
-            class="loanDetailText"></Label>
+            class="loanDetailText size14 deEmphasized mb5"></Label>
         </StackLayout>
 
         <StackLayout orientation="horizontal">
           <Label text="Repayment Term: "
-            class="loanDetailText"></Label>
+            class="loanDetailText size14 deEmphasized mb5"></Label>
           <Label [text]="loan.lenderRepaymentTerm + 'months'"
-            class="loanDetailText"></Label>
+            class="loanDetailText size14 deEmphasized mb5"></Label>
         </StackLayout>
 
       </StackLayout>
 
-      <Border class="separator"></Border>
+      <Border class="greyBorder"></Border>
 
-      <StackLayout class="loanBorrower listPadding">
+      <StackLayout class="loanBorrower p20">
         <StackLayout orientation="vertical"
           class="loanBorrower-name">
-          <Label class="loanSectionLabel pb5"
+          <Label class="loanSectionLabel size10 deEmphasized upper pb5"
             text="About Loan: "></Label>
           <Label textwrap="true"
             [text]="loan.purpose"
-            class="loanDetailText">
+            class="loanDetailText size14 deEmphasized mb5">
           </Label>
         </StackLayout>
       </StackLayout>
 
-      <Border class="separator"></Border>
+      <Border class="greyBorder"></Border>
 
-      <StackLayout class="loanBusiness listPadding">
+      <StackLayout class="loanBusiness p20">
         <StackLayout orientation="vertical">
-          <Label class="loanSectionLabel pb5"
+          <Label class="loanSectionLabel size10 deEmphasized upper pb5"
             text="About Business: "></Label>
           <Label textwrap="true"
             [text]="loan.businessName"
-            class="loanDetailTitle pb5">
+            class="loanDetailTitle size18 pb5">
           </Label>
           <Label textwrap="true"
             [text]="loan.businessDescription"
-            class="loanDetailText">
+            class="loanDetailText size14 deEmphasized mb5">
           </Label>
         </StackLayout>
       </StackLayout>
