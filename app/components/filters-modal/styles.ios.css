@@ -1,12 +1,1 @@
-.actionBarStatusBar {
-  margin-top: -20;
-}
-.cityListItem {
-  border-top: 1px solid #ddd;
-  font-size: 14;
-  padding-left: 20;
-  padding-top: 10;
-  padding-bottom: 10;
-  left: 50%;
-  color: #333;
-}
+.cityListItem { padding-left: 10; }

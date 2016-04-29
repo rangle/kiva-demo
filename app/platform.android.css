@@ -1,25 +1,17 @@
 .actionBar {
   height: 50;
-  padding-left: 15;
-  padding-right: 15;
-  width: 100%;
-}
-.actionBar-center {
-  text-align: center;
-  left: 30%;
-}
-.actionBar-title {
-  color: #fff;
-  font-size: 18;
-}
+  width: 100%; }
+.actionBar-center { left: 30%; }
+.actionBar-title { font-size: 18; }
 .actionBarItem-withIcon {
   margin-top: 12;
   margin-left: 40;
-  text-transform: none;
-}
-/*
-  Override Utilities
-*/
-  .uppercaseReverse {
-    text-transform: uppercase;
-  }
+  text-transform: none; }
+
+/*      Override Utilities      */
+.uppercaseReverse { text-transform: uppercase; }
+
+Button {
+  border-width: 1;
+  border-color: transparent;
+  background-color: transparent; }

@@ -1,1 +1,4 @@
-
+.loanImage { width: 40%; }
+.loanCardContent {
+  width: 60%;
+  padding-right: 10; }
