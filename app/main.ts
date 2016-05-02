@@ -45,6 +45,28 @@ if(platform.device.os === platform.platformNames.android) {
     }
 }
 
+// set the statusbar to white across the entire application on iOS
+if(platform.device.os === platform.platformNames.ios) {
+    class MyDelegate extends UIResponder implements UIApplicationDelegate {
+        public static ObjCProtocols = [UIApplicationDelegate];
+
+        applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary): boolean {
+            
+            console.log('did finish launching!');
+
+            // set the status bar to light content
+            UIApplication.sharedApplication().statusBarStyle = 1; 
+
+            return true;
+        }
+
+        applicationDidBecomeActive(application: UIApplication): void {
+            console.log("applicationDidBecomeActive: " + application)
+        }
+    }
+    application.ios.delegate = MyDelegate;
+}
+
 nativeScriptBootstrap(KivaApp, [
   RouterService,
   NS_ROUTER_PROVIDERS,
